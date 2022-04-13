@@ -1,2 +1,2 @@
 # data-structures
-Implementations of commonly used data structures for development practice
+Python 3 implementations of commonly used data structures
