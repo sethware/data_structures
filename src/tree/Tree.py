@@ -1,4 +1,4 @@
-import node.Node as Node
+import node.node as Node
 from dataclasses import dataclass
 
 @dataclass
