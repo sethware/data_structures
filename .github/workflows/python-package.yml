@@ -10,7 +10,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build-3.7-ubuntu:
+  build-37-ubuntu:
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -40,8 +40,8 @@ jobs:
       run: |
         pytest -v
 
-  build-3.7-others:
-    needs: build-3.7
+  build-37-others:
+    needs: build-37-ubuntu
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -72,7 +72,7 @@ jobs:
         pytest -v
 
   build-all:
-    needs: build-3.7-ubuntu
+    needs: build-37-ubuntu
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
