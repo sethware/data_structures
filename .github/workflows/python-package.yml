@@ -41,6 +41,7 @@ jobs:
         pytest -v
 
   build-all:
+    needs: build-one
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
