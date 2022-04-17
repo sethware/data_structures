@@ -35,7 +35,36 @@ def test_add():
     assert ll.size == 2
     assert n == ll.head
     assert n.next == n2
+    assert n2.next is None
     print(ll)
+
+
+def test_add_two():
+    n = Node(1)
+    ll = Linkedlist()
+    print(ll)
+    ll.add(n)
+    print(ll)
+    n2 = Node(2)
+    ll.add(n2)
+    print(ll)
+    n3 = Node(3)
+    ll.add(n3)
+    assert ll.size == 3
+    assert n == ll.head
+    assert n.next == n2
+    assert n2.next == n3
+    assert n3.next is None
+    print(ll)
+
+
+def test_add_nonnode():
+    ll = Linkedlist()
+    n = 123
+    try:
+        ll.add(n)
+    except Exception as e:
+        assert type(e) == TypeError
 
 
 def test_str_empty():
@@ -62,6 +91,38 @@ def test_repr():
     print(ll.__repr__())
 
 
+def test_remove():
+    n = Node(1)
+    ll = Linkedlist(n)
+    n2 = Node(2)
+    ll.add(n2)
+    print(ll)
+    removed_n = ll.remove(2)
+    print(ll)
+    print(removed_n)
+    assert removed_n == n2
+    assert ll.size == 1
+    assert n == ll.head
+    assert n.next is None
+    assert n2.next is None
+
+
+def test_remove_any():
+    n = Node(1)
+    ll = Linkedlist(n)
+    n2 = Node(2)
+    ll.add(n2)
+    print(ll)
+    removed_n = ll.remove_any()
+    print(ll)
+    print(removed_n)
+    assert removed_n == n
+    assert ll.size == 1
+    assert n2 == ll.head
+    assert n.next is None
+    assert n2.next is None
+
+
 def main():
     print('\n test_init_empty:')
     test_init_empty()
@@ -71,10 +132,18 @@ def main():
     test_empty_add()
     print('\n test_add:')
     test_add()
+    print('\n test_add_two:')
+    test_add_two()
+    print('\n test_add_nonnode:')
+    test_add_nonnode()
     print('\n test_str_empty:')
     test_str_empty()
     print('\n test_repr_empty:')
     test_repr_empty()
+    print('\n test_remove:')
+    test_remove()
+    print('\n test_remove_any:')
+    test_remove_any()
     print('\n test_repr:')
     test_repr()
     print('\n test_str:')

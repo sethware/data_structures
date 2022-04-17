@@ -50,12 +50,31 @@ class Linkedlist():
     def remove(self, value):
         prev = None
         curr = self.head
+        next = curr.next
         if curr is None:
             return None
-        while curr.next is not None:
+        while curr is not None:
             if curr.value == value:
-                prev.next = curr.next
+                if self.head is curr:
+                    self.head = next
+                elif prev is not None:
+                    prev.next = next
                 curr.next = None
+                self.size -= 1
                 return curr
-            curr = curr.next
+            prev = curr
+            curr = next
+            next = curr.next
+        return None
+
+    def remove_any(self):
+        curr = self.head
+        next = curr.next
+        if curr is None:
+            return None
+        else:
+            self.head = next
+            curr.next = None
+            self.size -= 1
+            return curr
         return None

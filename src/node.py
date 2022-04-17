@@ -12,6 +12,9 @@ class Node:
     def __str__(self):
         return f'[{self.value}]'
 
+    def __eq__(self, other):
+        return self is other
+
     def __repr__(self):
         return str({'value': self.value, 'next': str(self.next), 'left': str(self.left), 'right': str(self.right)})
     # def __repr__(self):
