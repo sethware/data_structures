@@ -7,9 +7,14 @@ class Tree:
     head: Node
     size: int
 
-    def __init__(self, head: Node):
+    def __init__(self, head: Node = None):
         self.head = head
-        self.size = 0
+        if head is not None:
+            self.size = 1
+        else:
+            self.size = 0
+
+    def add(self, n: Node)
 
 
 def main():

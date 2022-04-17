@@ -3,7 +3,7 @@ from dataclasses import dataclass
 
 @dataclass
 class Node:
-    def __init__(self):
+    def __init__(self, value=None, head=None):
         self.value = None
         self.next = None
 
