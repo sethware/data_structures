@@ -40,7 +40,7 @@ jobs:
       run: |
         pytest -v
 
-  build-3.7-ubuntu:
+  build-3.7-others:
     needs: build-3.7
     runs-on: ${{ matrix.os }}
     strategy:
