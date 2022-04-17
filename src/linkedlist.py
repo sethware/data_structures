@@ -17,9 +17,17 @@ class Linkedlist():
         ret_str = ""
         curr = self.head
         while curr is not None:
-            ret_str = ret_str + str(curr)
+            ret_str = ret_str + str(curr) + '->'
             curr = curr.next
-        return '{' + ret_str + '}'
+        return '{' + ret_str + '[None]}'
+
+    def __repr__(self):
+        ret_str = ""
+        curr = self.head
+        while curr is not None:
+            ret_str = ret_str + curr.__repr__() + ',\n'
+            curr = curr.next
+        return '{' + ret_str + '{None}}'
 
     def add(self, n: Node):
         prev = self.head
