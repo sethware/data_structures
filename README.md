@@ -3,5 +3,4 @@ Python 3 implementations of commonly used data structures
 
 **Requires Python 3.7 or above**
 
-![Build/Tests Python 3.7](https://github.com/sethware/data_structures/actions/workflows/python-package.yaml/badge.svg)
-[![tests_python_37](https://github.com/sethware/data_structures/actions/workflows/python-package.yml/badge.svg)](https://github.com/sethware/data_structures/actions/workflows/python-package.yml)
+[![tests_python_37](https://github.com/sethware/data_structures/actions/workflows/tests_python_37/badge.svg)](https://github.com/sethware/data_structures/actions/workflows/python-package.yml)
