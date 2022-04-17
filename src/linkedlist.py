@@ -13,8 +13,15 @@ class Linkedlist():
         if head is not None and isinstance(head, Node):
             self.size += 1
 
-    def add(self, n: Node):
+    def __str__(self):
+        ret_str = ""
+        curr = self.head
+        while curr is not None:
+            ret_str = ret_str + str(curr)
+            curr = curr.next
+        return '{' + ret_str + '}'
 
+    def add(self, n: Node):
         prev = self.head
         if prev is None and isinstance(n, Node):
             self.head = n
@@ -28,5 +35,19 @@ class Linkedlist():
                 next = prev.next
             prev.next = n
             n.next = None
+            self.size += 1
         else:
             raise TypeError("Can't add non-Node type to Linkedlist")
+
+    def remove(self, value):
+        prev = None
+        curr = self.head
+        if curr is None:
+            return None
+        while curr.next is not None:
+            if curr.value == value:
+                prev.next = curr.next
+                curr.next = None
+                return curr
+            curr = curr.next
+        return None
