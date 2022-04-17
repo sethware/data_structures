@@ -1,7 +1,7 @@
-from node import node
+from node import Node
 
 
 def test_init():
-    n = node.Node()
+    n = Node()
     print('in test')
     assert n is not None

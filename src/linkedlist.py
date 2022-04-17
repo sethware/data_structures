@@ -1,26 +1,26 @@
 from dataclasses import dataclass
-from node import node
+from node import Node
 
 
 @dataclass
 class Linkedlist():
-    head: node.Node
+    head: Node
     size: int
 
-    def __init__(self, head: node.Node = None):
+    def __init__(self, head: Node = None):
         self.size = 0
         self.head = head
-        if head is not None and isinstance(head, node.Node):
+        if head is not None and isinstance(head, Node):
             self.size += 1
 
-    def add(self, n: node.Node):
+    def add(self, n: Node):
 
         prev = self.head
-        if prev is None and isinstance(n, node.Node):
+        if prev is None and isinstance(n, Node):
             self.head = n
             self.size += 1
             return
-        elif isinstance(n, node.Node):
+        elif isinstance(n, Node):
             prev = self.head
             next = prev.next
             while next is not None:

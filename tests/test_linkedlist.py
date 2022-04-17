@@ -1,28 +1,28 @@
-from linkedlist import linkedlist
-from node import node
+from linkedlist import Linkedlist
+from node import Node
 
 
 def test_init_empty():
-    ll = linkedlist.Linkedlist()
+    ll = Linkedlist()
     print(ll)
 
 
 def test_init():
-    n = node.Node()
-    ll = linkedlist.Linkedlist(n)
+    n = Node()
+    ll = Linkedlist(n)
     print(ll)
 
 
 def test_empty_add():
-    n = node.Node()
-    ll = linkedlist.Linkedlist()
+    n = Node()
+    ll = Linkedlist()
     ll.add(n)
     print(ll)
 
 
 def test_add():
-    n = node.Node()
-    ll = linkedlist.Linkedlist(n)
-    n2 = node.Node()
+    n = Node()
+    ll = Linkedlist(n)
+    n2 = Node()
     ll.add(n2)
     print(ll)

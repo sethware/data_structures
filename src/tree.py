@@ -1,6 +1,5 @@
-import node.node as Node
 from dataclasses import dataclass
-
+from node import Node
 
 @dataclass
 class Tree:
@@ -14,11 +13,12 @@ class Tree:
         else:
             self.size = 0
 
-    def add(self, n: Node)
+    def add(self, n: Node):
+        pass
 
 
 def main():
-    node = Node.Node()
+    node = Node()
     tree = Tree(node)
     print(f'tree: {tree}')
 
