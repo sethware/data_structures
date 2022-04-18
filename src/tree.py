@@ -15,7 +15,45 @@ class Tree:
             self.size = 0
 
     def add(self, n: Node):
-        pass
+        n.left = None
+        n.right = None
+        n.next = None
+        if self.head is None:
+            self.head = n
+            self.size += 1
+        else:
+            checked_ns = set()
+            curr = self.head
+            while curr is not None:
+                if curr.left is None:
+                    curr.left = n
+                    self.size += 1
+                    return
+                elif curr.right is None:
+                    curr.right = n
+                    self.size += 1
+                    return
+                checked_ns.add(curr)
+                curr = curr.left
+
+    def remove_any(self):
+        prev = None
+        curr = self.head
+        if curr is None:
+            return None
+        while curr is not None:
+            if curr.left is None and curr.right is None:
+                if prev is not None:
+                    prev.next = None
+                self.size -= 1
+                if curr is self.head:
+                    self.head = None
+                return curr
+            prev = curr
+            if prev.left is None:
+                curr = prev.right
+            else:
+                curr = prev.left
 
 
 def main():
