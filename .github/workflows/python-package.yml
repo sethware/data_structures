@@ -41,7 +41,7 @@ jobs:
         pytest -v
 
   build-39-others:
-    needs: build-37-ubuntu
+    needs: build-39-ubuntu
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
