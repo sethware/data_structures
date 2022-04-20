@@ -17,8 +17,6 @@ class Node:
 
     def __repr__(self):
         return str({'value': self.value, 'next': str(self.next), 'left': str(self.left), 'right': str(self.right)})
-    # def __repr__(self):
-    #     return str(self.value,self.next)
 
     # def __str__(self):
     #     return str(self.__repr__)

@@ -123,6 +123,28 @@ def test_remove_any():
     assert n2.next is None
 
 
+def test_iter():
+    n1 = Node(1)
+    ll = Linkedlist()
+    print(ll)
+    ll.add(n1)
+    print(ll)
+    n2 = Node(2)
+    ll.add(n2)
+    print(ll)
+    n3 = Node(3)
+    ll.add(n3)
+    print(ll)
+    for n in ll:
+        print(n)
+    assert ll.size == 3
+    assert n1 == ll.head
+    assert n1.next == n2
+    assert n2.next == n3
+    assert n3.next is None
+    print(ll)
+
+
 def main():
     print('\n test_init_empty:')
     test_init_empty()
@@ -148,6 +170,8 @@ def main():
     test_repr()
     print('\n test_str:')
     test_str()
+    print('\n test_iter:')
+    test_iter()
 
 
 if __name__ == '__main__':

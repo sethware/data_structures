@@ -4,6 +4,7 @@ from node import Node
 
 @dataclass
 class Linkedlist():
+    '''An iterable custom linked list implementation'''
     head: Node
     size: int
 
@@ -12,6 +13,19 @@ class Linkedlist():
         self.head = head
         if head is not None and isinstance(head, Node):
             self.size += 1
+
+    def __iter__(self):
+        self.current = Node(next=self.head)
+        return self
+
+    def __next__(self):
+        if self.current is None:
+            raise StopIteration
+        else:
+            self.current = self.current.next
+            if self.current is None:
+                raise StopIteration
+        return self.current
 
     def __str__(self):
         ret_str = ""
@@ -69,11 +83,15 @@ class Linkedlist():
 
     def remove_any(self):
         curr = self.head
-        next = curr.next
         if curr is None:
             return None
+        elif curr.next is not None:
+            self.head = curr.next
+            curr.next = None
+            self.size -= 1
+            return curr
         else:
-            self.head = next
+            self.head = curr.next
             curr.next = None
             self.size -= 1
             return curr
