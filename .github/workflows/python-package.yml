@@ -1,7 +1,7 @@
 # This workflow will install Python dependencies, run tests and lint with a variety of Python versions
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
-name: tests_python_37
+name: tests
 
 on:
   push:
@@ -10,12 +10,12 @@ on:
     branches: [ master ]
 
 jobs:
-  build-37-ubuntu:
+  build-39-ubuntu:
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.7"]
+        python-version: ["3.9"]
         os: [ubuntu-latest]
 
     steps:
@@ -40,13 +40,13 @@ jobs:
       run: |
         pytest -v
 
-  build-37-others:
+  build-39-others:
     needs: build-37-ubuntu
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.7"]
+        python-version: ["3.9"]
         os: [windows-latest, macOS-latest]
 
     steps:
