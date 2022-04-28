@@ -14,6 +14,9 @@ class Linkedlist():
         if head is not None and isinstance(head, Node):
             self.size += 1
 
+    def __len__(self):
+        return self.size
+
     def __iter__(self):
         self.current = Node(next=self.head)
         return self
