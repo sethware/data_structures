@@ -78,8 +78,34 @@ class Linkedlist():
                 return curr
             prev = curr
             curr = next
-            next = curr.next
+            if curr is not None:
+                next = curr.next
+            else:
+                next = None
         return None
+
+        def remove_node(self, n):
+            prev = None
+            curr = self.head
+            next = curr.next
+            if curr is None:
+                return None
+            while curr is not None:
+                if curr == value:
+                    if self.head is curr:
+                        self.head = next
+                    elif prev is not None:
+                        prev.next = next
+                    curr.next = None
+                    self.size -= 1
+                    return curr
+                prev = curr
+                curr = next
+                if curr is not None:
+                    next = curr.next
+                else:
+                    next = None
+            return None
 
     def remove_any(self):
         curr = self.head

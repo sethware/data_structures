@@ -30,9 +30,15 @@ class Hashmap():
             raise KeyError('Must provide either a value or a key/hash to Hashmap.find()')
 
         hash_code = self.hash(value) % len(self.array)
+        # print(f'\n hash code: {hash_code}\n')
+        # print(f'self.array[hash_code]: {self.array[hash_code]}\n')
 
         for n in self.array[hash_code]:
-            if n.value['key'] == key:
+            # print(f'checking node: {n} for key: {key}\n')
+            # print(f'node.value[key]: {type(n.value["key"])}\n')
+            # print(f'key: {type(key)}\n')
+            # print(f'node.value[key] == key:{int(n.value["key"]) == key}\n')
+            if int(n.value['key']) == key:
                 return n.value['value']
         return None
 
@@ -43,8 +49,12 @@ class Hashmap():
         hash_code = self.hash(value) % len(self.array)
 
         for n in self.array[hash_code]:
-            if n.value['key'] == key:
-                n = self.array[hash_code].remove(n)
+            if int(n.value['key']) == key:
+                print(f'self.array[hash_code]: {self.array[hash_code]}\n')
+                print(f'n: {n}\n')
+                print(f'n in array?: {n in self.array[hash_code]}')
+                n = self.array[hash_code].remove(n.value)
+                print(f'n: {n}\n')
                 if n is not None:
                     self.size -= 1
                     return n.value['value']

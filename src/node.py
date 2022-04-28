@@ -13,7 +13,13 @@ class Node:
         return f'[{self.value}]'
 
     def __eq__(self, other):
-        return self is other
+        if isinstance(other, Node):
+            return self.value == other.value and self.next == other.next and self.left == other.left and self.right == other.right
+        elif self or other is None:
+            if self is other:
+                return True
+        else:
+            return False
 
     def __repr__(self):
         return str({'value': self.value, 'next': str(self.next), 'left': str(self.left), 'right': str(self.right)})

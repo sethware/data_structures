@@ -23,7 +23,7 @@ def test_find():
     key = '15'
     h.add(key, val)
     print(h)
-    n = h.remove(key, val)
+    n = h.find(key, val)
     print(f'hashmap:\n {h}')
     print(f'found value:\n {n}')
     assert h.size == 1
@@ -36,7 +36,7 @@ def test_remove():
     val = 15
     key = '15'
     h.add(key, val)
-    print(h)
+    print(f'{h}\n')
     n = h.remove(key, val)
     print(f'hashmap:\n {h}')
     print(f'removed value:\n {n}')

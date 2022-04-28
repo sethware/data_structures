@@ -92,19 +92,16 @@ def test_repr():
 
 
 def test_remove():
-    n = Node(1)
-    ll = Linkedlist(n)
-    n2 = Node(2)
-    ll.add(n2)
+    ll = Linkedlist()
+    n = Node(2)
+    ll.add(n)
     print(ll)
     removed_n = ll.remove(2)
     print(ll)
     print(removed_n)
-    assert removed_n == n2
-    assert ll.size == 1
-    assert n == ll.head
+    assert removed_n == n
+    assert ll.size == 0
     assert n.next is None
-    assert n2.next is None
 
 
 def test_remove_any():
