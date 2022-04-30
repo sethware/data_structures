@@ -1,33 +1,16 @@
 from dataclasses import dataclass
 from node import Node
-
+from linkedlist import Linkedlist
 
 @dataclass
-class MyQueue():
+class MyQueue(Linkedlist):
     head: Node
     size: int
 
-    def __init__(self, head: Node = None):
-        self.size = 0
-        self.head = head
-        if head is not None and isinstance(head, Node):
-            self.size += 1
-
-    def __str__(self):
-        ret_str = ""
-        curr = self.head
-        while curr is not None:
-            ret_str = ret_str + str(curr) + '->'
-            curr = curr.next
-        return '{' + ret_str + '[None]}'
-
-    def __repr__(self):
-        ret_str = ""
-        curr = self.head
-        while curr is not None:
-            ret_str = ret_str + curr.__repr__() + ',\n'
-            curr = curr.next
-        return '{' + ret_str + '{None}}'
+    def __init__(self, n: Node=None):
+        if n is None:
+            return super().__init__()
+        return super().__init__(n)
 
     def add(self, n: Node):
         prev = self.head
@@ -48,16 +31,4 @@ class MyQueue():
             raise TypeError("Can't add non-Node type to Linkedlist")
 
     def remove(self):
-        curr = self.head
-        next = curr.next
-        if curr is None:
-            return None
-        while curr is not None:
-            if next is None:
-                if curr is self.head:
-                    self.head = None
-                curr.next = None
-                self.size -= 1
-                return curr
-            curr = next
-            next = curr.next
+        return super().remove_any()
